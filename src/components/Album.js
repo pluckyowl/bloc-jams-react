@@ -13,7 +13,8 @@ class Album extends Component {
      this.state = {
        album: album,
        currentSong: album.songs[0],
-       isPlaying: false
+       isPlaying: false,
+       isHovered: false
      };
 
      this.audioElement = document.createElement('audio');
@@ -40,10 +41,38 @@ class Album extends Component {
       if (this.state.isPlaying && isSameSong) {
         this.pause();
       } else {
-        if (!isSameSong) { this.setSong(song); }  
+        if (!isSameSong) { this.setSong(song); }
         this.play();
       }
     }
+
+    hover(song){
+      this.setState({currentHoveredSong: song });
+    }
+
+    unHover(song){
+      this.setState({currentHoveredSong: null});
+    }
+
+    songButtons(song, index) {
+      const isHoveredSong = this.state.currentHoveredSong === song;
+      if (isHoveredSong) {
+        if (this.state.currentSong === song) {
+          if (this.state.isPlaying) {
+            return <span className = 'ion-md-pause'/>
+          } else {
+            return <span className = 'ion-md-play'/>;
+          }
+        }
+          return <span className = 'ion-md-play'/>;
+      } else {
+        if (this.state.isPlaying && this.state.currentSong === song) {
+          return <span className = 'ion-md-pause'/>;
+        } else {
+          return index + 1;
+      }
+    }
+  }
 
    render() {
      return (
@@ -65,10 +94,12 @@ class Album extends Component {
            <tbody>
              {
                this.state.album.songs.map( (song, index) =>
-               <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
-                 <td className="song-number">{index+1}</td>
-                 <td className="song-title">{song.title}</td>
-                 <td className="song-duration">{song.duration}</td>
+               <tr className="song" key={index} onClick={() => this.handleSongClick(song)}
+                 onMouseEnter = {() => this.hover(song)}
+                 onMouseLeave = {() => this.unHover(song)}>
+                 <td><button>{this.songButtons(song, index)}</button></td>
+                 <td>{song.title}</td>
+                 <td>{song.duration}</td>
                </tr>
                )
              }
