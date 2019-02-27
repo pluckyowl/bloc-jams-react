@@ -131,7 +131,8 @@ class Album extends Component {
       const totalSeconds = Math.floor(parseFloat(time));
       const minutes = Math.floor(totalSeconds / 60);
       const seconds = totalSeconds - (minutes * 60);
-      if (isNaN(time)) {
+      debugger
+      if (isNaN(time) || !time === 0) {
         return "-:--";
       } else if (seconds < 10) {
         return minutes + ":" + 0 + seconds;
@@ -176,7 +177,7 @@ class Album extends Component {
           currentSong={this.state.currentSong}
           currentTime={this.audioElement.currentTime}
           volume={this.state.volume}
-          duration={this.audioElement.duration}
+          duration={this.state.currentSong.duration}
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick()}

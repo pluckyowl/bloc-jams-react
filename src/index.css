@@ -1,14 +1,147 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+  font-family: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #000000;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+header {
+
+
+}
+
+nav {
+  display: inline-block;
+  position: relative;
+  float: right;
+  vertical-align: bottom;
+  margin: 2rem 0 2rem 0;
+  font-size: 1rem;
+}
+
+.nav-link {
+  margin-right: 2rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #8EE4AF;
+}
+
+.nav-link:hover {
+  border-bottom: 3px dashed #ff6600;
+  padding-bottom: .3rem;
+}
+
+.active {
+
+}
+
+.logo {
+ border: 0;
+ margin: 0 0 2rem 2rem;
+ padding: 0;
+ text-align: left;
+}
+
+.logo a {
+ display: block;
+ font-family: 'Permanent Marker', cursive;
+ text-decoration: none;
+ color: #8EE4AF;
+}
+
+.landing {
+
+}
+
+.hero-title {
+  background: url('/assets/images/compact-cassette.png') no-repeat 0 0;
+  background-position: top;
+  background-size: contain;
+  width: 480px;
+  height: 300px;
+  padding: 20px 0 0 0;
+  font-size: 2.5rem;
+  font-family: 'Permanent Marker', cursive;
+  margin: 0 40px 0 20px;
+  float: left;
+}
+
+.selling-points {
+  text-align: left;
+  border: 0;
+}
+
+.selling-points .icon {
+  font-size: 3.5rem;
+  display: block;
+  width: 5rem;
+  float: left;
+  text-align: center;
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+.point {
+  /*float: left;
+  //width: 33.33%;*/
+  margin: 3rem 0;
+}
+
+.point-title {
+  font-size: 1.8rem;
+  vertical-align: top;
+  margin: .5rem 0;
+  padding: 0;
+  color: #8EE4AF;
+}
+
+.point-description {
+  font-size: 1rem;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+}
+
+/* Clear floats after the columns
+.selling-points:after {
+  content: "";
+  display: table;
+  clear: both;
+} */
+
+@media screen and (min-width: 601px) {
+  .logo a {
+    font-size: 3rem;
+  }
+  nav {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .logo a {
+    font-size: 2rem;
+  }
+  nav {
+    font-size: .8rem;
+    margin: 1rem 0 1rem 0;
+  }
+  .point {
+    width: 100%;
+  }
+  .hero-title {
+    font-size: 1.7rem;
+    padding-top: 50px;
+    margin: 0;
+  }
 }
